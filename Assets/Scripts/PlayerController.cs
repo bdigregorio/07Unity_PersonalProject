@@ -5,13 +5,16 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour{
 
     private Rigidbody playerRigidBody;
+    public float horizontalInput;
+    public float verticalInput;
+
     private float speed = 2.0f;
     private float turnAngle = 45.0f;
     public bool invertYAxis = true;
     private int invertedState;
-
-    public float horizontalInput;
-    public float verticalInput;
+    private float xBounds = 3.0f;
+    private float yMinBounds = 0.0f;
+    private float yMaxBounds = 3.0f;
 
     private void Start() {
         playerRigidBody = GetComponent<Rigidbody>();
@@ -44,5 +47,24 @@ public class PlayerController : MonoBehaviour{
         // Calculate and apply rotation
         float yRotation = horizontalInput * turnAngle * Time.deltaTime;
         transform.Rotate(Vector3.up, yRotation);
+
+        // Keep player in X bounds
+        Vector3 playerPosition = transform.position;
+        if (playerPosition.x < -xBounds) {
+            transform.position = new Vector3(-xBounds, playerPosition.y, playerPosition.z);
+            playerPosition.x = -xBounds;
+        } 
+        if (playerPosition.x > xBounds) {
+            transform.position = new Vector3(xBounds, playerPosition.y, playerPosition.z);
+            playerPosition.x = xBounds;
+        }
+
+        // Keep player in Y bounds
+        if (playerPosition.y < yMinBounds) {
+            transform.position = new Vector3(playerPosition.x, yMinBounds, playerPosition.z);
+        } 
+        if (playerPosition.y > yMaxBounds) {
+            transform.position = new Vector3(playerPosition.x, yMaxBounds, playerPosition.z);
+        }
     }
 }
