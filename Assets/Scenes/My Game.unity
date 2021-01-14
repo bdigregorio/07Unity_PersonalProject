@@ -133,6 +133,7 @@ GameObject:
   - component: {fileID: 258329461}
   - component: {fileID: 258329460}
   - component: {fileID: 258329459}
+  - component: {fileID: 258329463}
   m_Layer: 0
   m_Name: Ring (2)
   m_TagString: Untagged
@@ -214,6 +215,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &258329463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 258329458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1ffb1fab60261b4f9c2ae01445a5580, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &333291601
 GameObject:
   m_ObjectHideFlags: 0
@@ -226,8 +239,9 @@ GameObject:
   - component: {fileID: 333291604}
   - component: {fileID: 333291603}
   - component: {fileID: 333291602}
+  - component: {fileID: 333291606}
   m_Layer: 0
-  m_Name: Capsule
+  m_Name: PowerUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -241,7 +255,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 333291601}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5
   m_Height: 2
@@ -308,6 +322,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &333291606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 333291601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1ffb1fab60261b4f9c2ae01445a5580, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &579348299
 GameObject:
   m_ObjectHideFlags: 0
@@ -320,6 +346,8 @@ GameObject:
   - component: {fileID: 579348302}
   - component: {fileID: 579348301}
   - component: {fileID: 579348300}
+  - component: {fileID: 579348305}
+  - component: {fileID: 579348304}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -401,6 +429,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &579348304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 579348299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53d6bcba80822264fb6f3f07aaa6c1a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  horizontalInput: 0
+  verticalInput: 0
+  invertYAxis: 0
+--- !u!54 &579348305
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 579348299}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 8
+  m_CollisionDetection: 0
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -504,7 +563,6 @@ GameObject:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
-  - component: {fileID: 963194229}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -570,26 +628,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.13052616, y: 0, z: 0, w: 0.9914449}
-  m_LocalPosition: {x: 0, y: 3, z: -5}
+  m_LocalRotation: {x: 0.043619405, y: 0, z: 0, w: 0.9990483}
+  m_LocalPosition: {x: 0, y: 2, z: -4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 15, y: 0, z: 0}
---- !u!114 &963194229
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 963194225}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d35af081ef9f9146b2b39a6332eaf36, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 579348299}
+  m_LocalEulerAnglesHint: {x: 5, y: 0, z: 0}
 --- !u!1 &999740277
 GameObject:
   m_ObjectHideFlags: 0
@@ -696,6 +741,7 @@ GameObject:
   - component: {fileID: 1026901352}
   - component: {fileID: 1026901351}
   - component: {fileID: 1026901350}
+  - component: {fileID: 1026901354}
   m_Layer: 0
   m_Name: Ring (1)
   m_TagString: Untagged
@@ -777,6 +823,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1026901354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1026901349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1ffb1fab60261b4f9c2ae01445a5580, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1278203349
 GameObject:
   m_ObjectHideFlags: 0
@@ -789,6 +847,7 @@ GameObject:
   - component: {fileID: 1278203352}
   - component: {fileID: 1278203351}
   - component: {fileID: 1278203350}
+  - component: {fileID: 1278203354}
   m_Layer: 0
   m_Name: Ring
   m_TagString: Untagged
@@ -804,7 +863,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1278203349}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -870,6 +929,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1278203354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1278203349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1ffb1fab60261b4f9c2ae01445a5580, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1872524275
 GameObject:
   m_ObjectHideFlags: 0
@@ -882,6 +953,7 @@ GameObject:
   - component: {fileID: 1872524278}
   - component: {fileID: 1872524277}
   - component: {fileID: 1872524276}
+  - component: {fileID: 1872524280}
   m_Layer: 0
   m_Name: Ring (3)
   m_TagString: Untagged
@@ -963,3 +1035,15 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1872524280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1872524275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1ffb1fab60261b4f9c2ae01445a5580, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
