@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour{
         // Calculate and apply translation
         float xTranslation = horizontalInput * speed *  Time.deltaTime;
         float yTranslation = verticalInput * speed * invertedState * Time.deltaTime; 
-        transform.Translate(xTranslation, yTranslation, 0);
+        transform.Translate(xTranslation, yTranslation, 0, Space.World);
 
         // Calculate and apply rotation
         float yRotation = horizontalInput * turnAngle * Time.deltaTime;
