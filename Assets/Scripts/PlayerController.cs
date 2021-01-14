@@ -18,12 +18,12 @@ public class PlayerController : MonoBehaviour{
 
     private void Start() {
         playerRigidBody = GetComponent<Rigidbody>();
-        
         setCameraInversionState();
     }
 
     private void Update() {
-        applyEngineForce();
+        MovePlayer();
+        KeepPlayerInBounds();
     }
 
     private void setCameraInversionState() {
@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour{
         }
     }
 
-    private void applyEngineForce() {
+    private void MovePlayer() {
         // Get current input values
         horizontalInput = Input.GetAxis("Horizontal");
         verticalInput = Input.GetAxis("Vertical");
@@ -47,7 +47,9 @@ public class PlayerController : MonoBehaviour{
         // Calculate and apply rotation
         float yRotation = horizontalInput * turnAngle * Time.deltaTime;
         transform.Rotate(Vector3.up, yRotation);
+    }
 
+    private void KeepPlayerInBounds() {
         // Keep player in X bounds
         Vector3 playerPosition = transform.position;
         if (playerPosition.x < -xBounds) {
