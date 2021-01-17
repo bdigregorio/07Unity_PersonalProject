@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 258329463}
   m_Layer: 0
   m_Name: Ring (2)
-  m_TagString: Untagged
+  m_TagString: PathTarget
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -243,7 +243,7 @@ GameObject:
   - component: {fileID: 333291606}
   m_Layer: 0
   m_Name: PowerUp
-  m_TagString: Untagged
+  m_TagString: Powerup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -746,7 +746,7 @@ GameObject:
   - component: {fileID: 1026901354}
   m_Layer: 0
   m_Name: Ring (1)
-  m_TagString: Untagged
+  m_TagString: PathTarget
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -960,7 +960,7 @@ GameObject:
   - component: {fileID: 1872524280}
   m_Layer: 0
   m_Name: Ring (3)
-  m_TagString: Untagged
+  m_TagString: PathTarget
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

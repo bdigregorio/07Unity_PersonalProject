@@ -26,6 +26,14 @@ public class PlayerController : MonoBehaviour{
         KeepPlayerInBounds();
     }
 
+    private void OnTriggerEnter(Collider other) {
+        if (other.CompareTag("PathTarget")) {
+            CollideWithPathTarget(other);
+        } else if (other.CompareTag("Powerup")) {
+            CollideWithPowerup(other);
+        }
+    }
+
     private void setCameraInversionState() {
         if (invertYAxis) {
             invertedState = -1;
@@ -70,5 +78,15 @@ public class PlayerController : MonoBehaviour{
         if (playerPosition.y > yMaxBounds) {
             transform.position = new Vector3(playerPosition.x, yMaxBounds, playerPosition.z);
         }
+    }
+
+    private void CollideWithPathTarget(Collider collider) {
+        GameObject pathTarget = collider.gameObject;
+        Debug.Log($"Collide with PathTarget: {pathTarget}");
+    }
+
+    private void CollideWithPowerup(Collider collider) {
+        GameObject powerup = collider.gameObject;
+        Debug.Log($"Collide with Powerup: {powerup}");
     }
 }
