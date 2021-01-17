@@ -6,19 +6,20 @@ public class SpawnManager : MonoBehaviour{
     public GameObject powerupPrefab;
     public GameObject ringPrefab;
 
-    public float spawnDelay;
+    public float spawnDelayRing;
     public float spawnIntervalRing;
+    public float spawnDelayPowerup;
     public float spawnIntervalPowerup;
     
     private float xBounds = 3.25f;
     private float yMinBounds = -1.25f;
     private float yMaxBounds = 2.25f;
-    private float zSpawnPos = 25.0f;
+    private float zSpawnPos = 50.0f;
 
 
     private void Start() {
-        SpawnRandomRing();
-        SpawnRandomPowerup();
+        InvokeRepeating(nameof(SpawnRandomRing), spawnDelayRing, spawnIntervalRing);
+        InvokeRepeating(nameof(SpawnRandomPowerup), spawnDelayPowerup, spawnIntervalPowerup);
     }
 
     private void Update() {

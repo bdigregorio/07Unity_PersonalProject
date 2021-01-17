@@ -154,9 +154,10 @@ MonoBehaviour:
     type: 3}
   ringPrefab: {fileID: 3653922143987900266, guid: 723bfd868db99fb4791944df9846de16,
     type: 3}
-  spawnDelay: 2
-  spawnIntervalRing: 5
-  spawnIntervalPowerup: 15
+  spawnDelayRing: 1
+  spawnIntervalRing: 3
+  spawnDelayPowerup: 8
+  spawnIntervalPowerup: 11
 --- !u!4 &165937368
 Transform:
   m_ObjectHideFlags: 0
