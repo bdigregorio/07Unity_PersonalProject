@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour{
     public float verticalInput;
 
     private float speed = 2.0f;
-    private float turnAngle = 45.0f;
+    private float turnAngle = -45.0f;
     public bool invertYAxis = true;
     private int invertedState;
     private float xBounds = 3.0f;
@@ -45,8 +45,10 @@ public class PlayerController : MonoBehaviour{
         transform.Translate(xTranslation, yTranslation, 0, Space.World);
 
         // Calculate and apply rotation
-        float yRotation = horizontalInput * turnAngle * Time.deltaTime;
-        transform.Rotate(Vector3.up, yRotation);
+        float xRotation = verticalInput * turnAngle * Time.deltaTime;
+        float zRotation = horizontalInput * turnAngle * Time.deltaTime;
+        transform.Rotate(Vector3.right, xRotation);
+        transform.Rotate(Vector3.forward, zRotation);
     }
 
     private void KeepPlayerInBounds() {
