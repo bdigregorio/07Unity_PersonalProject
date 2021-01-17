@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3653922143987900261}
   m_Layer: 0
   m_Name: Ring
-  m_TagString: Untagged
+  m_TagString: PathTarget
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -106,4 +106,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1ffb1fab60261b4f9c2ae01445a5580, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  engineSpeed: 10

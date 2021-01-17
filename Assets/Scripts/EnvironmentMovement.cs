@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnvironmentMovement : MonoBehaviour {
-    public float engineSpeed = 10.0f;
+    private float engineSpeed = 8.0f;
     private float zDestroyBounds = -5.0f;
 
     private void Update() {
