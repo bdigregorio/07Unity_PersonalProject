@@ -12,9 +12,9 @@ public class PlayerController : MonoBehaviour{
     private float turnAngle = -45.0f;
     public bool invertYAxis = true;
     private int invertedState;
-    private float xBounds = 3.0f;
-    private float yMinBounds = 0.0f;
-    private float yMaxBounds = 3.0f;
+    private float xBounds = 4.0f;
+    private float yMinBounds = -1.5f;
+    private float yMaxBounds = 2.5f;
 
     private void Start() {
         playerRigidBody = GetComponent<Rigidbody>();
