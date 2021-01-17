@@ -83,10 +83,14 @@ public class PlayerController : MonoBehaviour{
     private void CollideWithPathTarget(Collider collider) {
         GameObject pathTarget = collider.gameObject;
         Debug.Log($"Collide with PathTarget: {pathTarget}");
+
+        Destroy(pathTarget);
     }
 
     private void CollideWithPowerup(Collider collider) {
         GameObject powerup = collider.gameObject;
         Debug.Log($"Collide with Powerup: {powerup}");
+        
+        Destroy(powerup);    
     }
 }
