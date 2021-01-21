@@ -112,6 +112,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3653922143987900262}
     m_Modifications:
+    - target: {fileID: 1005218508428060, guid: 969bfa87b0d1b0d40a4869eb40e6af1c, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
+    - target: {fileID: 1167772022003004, guid: 969bfa87b0d1b0d40a4869eb40e6af1c, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
+    - target: {fileID: 1483031277190430, guid: 969bfa87b0d1b0d40a4869eb40e6af1c, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
+    - target: {fileID: 1510448723465144, guid: 969bfa87b0d1b0d40a4869eb40e6af1c, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
+    - target: {fileID: 1528943073638010, guid: 969bfa87b0d1b0d40a4869eb40e6af1c, type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     - target: {fileID: 1780121308876936, guid: 969bfa87b0d1b0d40a4869eb40e6af1c, type: 3}
       propertyPath: m_Name
       value: GATE_ PLSTC_Hex
@@ -159,6 +179,31 @@ PrefabInstance:
     - target: {fileID: 4934507807984452, guid: 969bfa87b0d1b0d40a4869eb40e6af1c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 65293413149741522, guid: 969bfa87b0d1b0d40a4869eb40e6af1c,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 65712028798174290, guid: 969bfa87b0d1b0d40a4869eb40e6af1c,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 65736114371194994, guid: 969bfa87b0d1b0d40a4869eb40e6af1c,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 65756144465756872, guid: 969bfa87b0d1b0d40a4869eb40e6af1c,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 65775658121058142, guid: 969bfa87b0d1b0d40a4869eb40e6af1c,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 969bfa87b0d1b0d40a4869eb40e6af1c, type: 3}
