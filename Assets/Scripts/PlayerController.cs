@@ -31,6 +31,8 @@ public class PlayerController : MonoBehaviour{
             CollideWithPathTarget(other);
         } else if (other.CompareTag("Powerup")) {
             CollideWithPowerup(other);
+        } else if (other.CompareTag("Terrain")) {
+            CollideWithTerrain(other);
         }
     }
 
@@ -92,5 +94,13 @@ public class PlayerController : MonoBehaviour{
         Debug.Log($"Collide with Powerup: {powerup}");
         
         Destroy(powerup);    
+    }
+
+    private void CollideWithTerrain(Collider collider) {
+        GameObject terrain = collider.gameObject;
+        Debug.Log($"Collide with Terrain: {terrain}");
+
+        Destroy(gameObject);
+        // TODO trigger game over here
     }
 }
