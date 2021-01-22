@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour{
 
+    public GameObject mainCamera;
     private Rigidbody playerRigidBody;
     public float horizontalInput;
     public float verticalInput;
 
+    private Vector3 cameraOffset = new Vector3(0, 1, -4);
     private float speed = 2.0f;
     private float turnAngle = -45.0f;
     public bool invertYAxis = true;
@@ -24,6 +26,7 @@ public class PlayerController : MonoBehaviour{
     private void Update() {
         MovePlayer();
         KeepPlayerInBounds();
+        MoveCamera();
     }
 
     private void OnTriggerEnter(Collider other) {
@@ -54,11 +57,16 @@ public class PlayerController : MonoBehaviour{
         float yTranslation = verticalInput * speed * invertedState * Time.deltaTime; 
         transform.Translate(xTranslation, yTranslation, 0, Space.World);
 
+        // TODO Fix rotation logic: 
+        // instead of invoking Rotate (which will keep rotating as long as we have input)
+        // we shoud have a maxRotation amount and multiply it by the current vert/hor input
+        // this will unwind the rotation when the input key is released
+        // ========= broken implementation below
         // Calculate and apply rotation
-        float xRotation = verticalInput * turnAngle * Time.deltaTime;
-        float zRotation = horizontalInput * turnAngle * Time.deltaTime;
-        transform.Rotate(Vector3.right, xRotation);
-        transform.Rotate(Vector3.forward, zRotation);
+        // float xRotation = verticalInput * turnAngle * Time.deltaTime;
+        // float zRotation = horizontalInput * turnAngle * Time.deltaTime;
+        // transform.Rotate(Vector3.right, xRotation);
+        // transform.Rotate(Vector3.forward, zRotation);
     }
 
     private void KeepPlayerInBounds() {
@@ -80,6 +88,10 @@ public class PlayerController : MonoBehaviour{
         if (playerPosition.y > yMaxBounds) {
             transform.position = new Vector3(playerPosition.x, yMaxBounds, playerPosition.z);
         }
+    }
+
+    private void MoveCamera() {
+        mainCamera.transform.position = transform.position + cameraOffset;
     }
 
     private void CollideWithPathTarget(Collider collider) {
