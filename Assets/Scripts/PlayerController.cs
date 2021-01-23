@@ -6,13 +6,13 @@ public class PlayerController : MonoBehaviour{
 
     public GameObject mainCamera;
     private Rigidbody playerRigidBody;
+    public bool invertYAxis = true;
     public float horizontalInput;
     public float verticalInput;
 
     private Vector3 cameraOffset;
     private float speed = 2.0f;
-    private float turnAngle = -45.0f;
-    public bool invertYAxis = true;
+    private float maxRotation = -30.0f;
     private int invertedState;
     private float xBounds = 4.0f;
     private float yMinBounds = -1.5f;
@@ -58,16 +58,10 @@ public class PlayerController : MonoBehaviour{
         float yTranslation = verticalInput * speed * invertedState * Time.deltaTime; 
         transform.Translate(xTranslation, yTranslation, 0, Space.World);
 
-        // TODO Fix rotation logic: 
-        // instead of invoking Rotate (which will keep rotating as long as we have input)
-        // we shoud have a maxRotation amount and multiply it by the current vert/hor input
-        // this will unwind the rotation when the input key is released
-        // ========= broken implementation below
         // Calculate and apply rotation
-        // float xRotation = verticalInput * turnAngle * Time.deltaTime;
-        // float zRotation = horizontalInput * turnAngle * Time.deltaTime;
-        // transform.Rotate(Vector3.right, xRotation);
-        // transform.Rotate(Vector3.forward, zRotation);
+        float xRotation = verticalInput * maxRotation * invertedState;
+        float zRotation = horizontalInput * maxRotation;
+        transform.eulerAngles = Vector3.forward + new Vector3(xRotation, 0, zRotation); 
     }
 
     private void KeepPlayerInBounds() {

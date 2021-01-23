@@ -440,6 +440,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7717540307630494360, guid: 7395bc0e2839cfb4da90e34c94d5dcc4,
+        type: 3}
+      propertyPath: smokeIsOn
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7717540307641788278, guid: 7395bc0e2839cfb4da90e34c94d5dcc4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7717540307641788280, guid: 7395bc0e2839cfb4da90e34c94d5dcc4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7717540307641788282, guid: 7395bc0e2839cfb4da90e34c94d5dcc4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7877544038747043908, guid: 7395bc0e2839cfb4da90e34c94d5dcc4,
         type: 3}
       propertyPath: camera
@@ -450,6 +470,11 @@ PrefabInstance:
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 963194225}
+    - target: {fileID: 7877544038747043908, guid: 7395bc0e2839cfb4da90e34c94d5dcc4,
+        type: 3}
+      propertyPath: invertYAxis
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7877544038747043931, guid: 7395bc0e2839cfb4da90e34c94d5dcc4,
         type: 3}
       propertyPath: m_LocalPosition.x
