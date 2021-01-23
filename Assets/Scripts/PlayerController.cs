@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour{
 
+    public GameObject mainCamera;
     private Rigidbody playerRigidBody;
+    public bool invertYAxis = true;
     public float horizontalInput;
     public float verticalInput;
 
+    private Vector3 cameraOffset;
     private float speed = 2.0f;
-    private float turnAngle = -45.0f;
-    public bool invertYAxis = true;
+    private float maxRotation = -30.0f;
     private int invertedState;
     private float xBounds = 4.0f;
     private float yMinBounds = -1.5f;
@@ -19,11 +21,13 @@ public class PlayerController : MonoBehaviour{
     private void Start() {
         playerRigidBody = GetComponent<Rigidbody>();
         setCameraInversionState();
+        cameraOffset = mainCamera.transform.position - transform.position;
     }
 
     private void Update() {
         MovePlayer();
         KeepPlayerInBounds();
+        MoveCamera();
     }
 
     private void OnTriggerEnter(Collider other) {
@@ -31,6 +35,8 @@ public class PlayerController : MonoBehaviour{
             CollideWithPathTarget(other);
         } else if (other.CompareTag("Powerup")) {
             CollideWithPowerup(other);
+        } else if (other.CompareTag("Terrain")) {
+            CollideWithTerrain(other);
         }
     }
 
@@ -53,10 +59,9 @@ public class PlayerController : MonoBehaviour{
         transform.Translate(xTranslation, yTranslation, 0, Space.World);
 
         // Calculate and apply rotation
-        float xRotation = verticalInput * turnAngle * Time.deltaTime;
-        float zRotation = horizontalInput * turnAngle * Time.deltaTime;
-        transform.Rotate(Vector3.right, xRotation);
-        transform.Rotate(Vector3.forward, zRotation);
+        float xRotation = verticalInput * maxRotation * invertedState;
+        float zRotation = horizontalInput * maxRotation;
+        transform.eulerAngles = Vector3.forward + new Vector3(xRotation, 0, zRotation); 
     }
 
     private void KeepPlayerInBounds() {
@@ -80,6 +85,10 @@ public class PlayerController : MonoBehaviour{
         }
     }
 
+    private void MoveCamera() {
+        mainCamera.transform.position = transform.position + cameraOffset;
+    }
+
     private void CollideWithPathTarget(Collider collider) {
         GameObject pathTarget = collider.gameObject;
         Debug.Log($"Collide with PathTarget: {pathTarget}");
@@ -92,5 +101,13 @@ public class PlayerController : MonoBehaviour{
         Debug.Log($"Collide with Powerup: {powerup}");
         
         Destroy(powerup);    
+    }
+
+    private void CollideWithTerrain(Collider collider) {
+        GameObject terrain = collider.gameObject;
+        Debug.Log($"Collide with Terrain: {terrain}");
+
+        Destroy(gameObject);
+        // TODO trigger game over here
     }
 }
