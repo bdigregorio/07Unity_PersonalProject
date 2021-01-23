@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour{
     public float horizontalInput;
     public float verticalInput;
 
-    private Vector3 cameraOffset = new Vector3(0, 1, -4);
+    private Vector3 cameraOffset;
     private float speed = 2.0f;
     private float turnAngle = -45.0f;
     public bool invertYAxis = true;
@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour{
     private void Start() {
         playerRigidBody = GetComponent<Rigidbody>();
         setCameraInversionState();
+        cameraOffset = mainCamera.transform.position - transform.position;
     }
 
     private void Update() {
